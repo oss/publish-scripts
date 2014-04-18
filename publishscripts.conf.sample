@@ -1,0 +1,9 @@
+# publishscripts.conf: Bash configuration for the publishing scripts
+#
+# This file should be installed in a local configuration directory, e.g.
+# /usr/local/etc.
+# Make sure to edit these settings before starting.
+
+# User and password for the MySQL server
+publish_mysql_user="dbuser"
+publish_mysql_passwd="password"
