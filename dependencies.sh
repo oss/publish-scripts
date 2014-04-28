@@ -2,22 +2,22 @@
 # Tests whether or not all dependencies are satisfied.
 
 # Required executables
-for FILE in ; do
-    if [ ! -f "$FILE" ]; then
-        echo "Missing dependency: $FILE"
+while read -r FILE; do
+    if ! which "$FILE" > /dev/null 2>&1 ; then
+        echo "Missing executable: $FILE"
     fi
-done
+done < "$1"
 
 # Configuration files
-for CONF in ; do
+while read -r CONF; do
     if [ ! -f "$CONF" ]; then
         echo "Config file missing: $CONF"
     fi
-done
+done < "$2"
 
 # Directories
-for DIR in ; do
+while read -r DIR; do
     if [ ! -d "$DIR" ]; then
         echo "Directory missing: $DIR"
     fi
-done
+done < "$3"
